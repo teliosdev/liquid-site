@@ -3,6 +3,7 @@
 pid=$(cat puma.pid)
 
 if [ -z "$var" ]; then
+  echo "Puma isn't running, skipping..."
 else
   count=0
   run kill "$pid"
