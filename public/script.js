@@ -2,19 +2,19 @@
 
 $(function () {
   "use strict";
-  
+
   var keyBind, refreshBox;
-  
+
   $("body").scrollspy({ target: ".main-nav" })
-  
+
   $("pre:not(.no-highlight)").each(function (i, e) {
     var $e = $(e), elem;
-    
+
     $e.addClass("display");
-    
+
     elem = $("<code />");
     elem.addClass("compiled highlight");
-    
+
     $.ajax({
       url: "https://liquidscript.io/run",
       type: "POST",
@@ -27,12 +27,12 @@ $(function () {
         }
       }
     });
-    
+
   });
-  
+
   refreshBox = function() {
     $("#try code.compiled").removeClass("error");
-    
+
     $.ajax({
       url: "https://liquidscript.io/run",
       type: "POST",
@@ -48,14 +48,14 @@ $(function () {
       }
     });
   };
-  
+
   $("#try").append("<code class='compiled highlight'></code>");
   $("#try textarea").on("keydown", function() {
     if(keyBind) {
-      clearTimeout(keyBind); 
+      clearTimeout(keyBind);
     }
-    
+
     keyBind = setTimeout(refreshBox, 500);
   });
-  
+
 });
