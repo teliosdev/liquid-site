@@ -28,8 +28,8 @@ post '/run' do
       output = Pygments.highlight(output, :lexer => "javascript")
     end
   rescue Liquidscript::Error => e
-    error = e
+    error = e.message
   end
 
-  Oj.dump({ "error" => error, "success" => (error == nil), "result" => output })
+  Oj.dump({ "error" => error, "success" => (error == nil), "result" => output }, :object)
 end

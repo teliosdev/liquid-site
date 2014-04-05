@@ -2,10 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     hashie (2.0.5)
-    liquidscript (0.7.11)
+    liquidscript (0.7.12)
       hashie (~> 2.0)
       thor
-    oj (2.6.1)
+    oj (2.7.1)
     posix-spawn (0.3.8)
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
