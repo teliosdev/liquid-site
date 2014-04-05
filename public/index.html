@@ -4,7 +4,7 @@
     <title>Liquidscript</title>
 
     <link href="style.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400|Raleway' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato|Raleway' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <header>
@@ -18,7 +18,7 @@
           <li><a href="#syntax">Syntax</a></li>
           <li><a href="#installation">Installation</a></li>
           <li><a href="#try-it">Try It</a></li>
-          <li><a href="https://github.com/medcat/liquidscript">Fork It</a></li>
+          <li><a href="https://github.com/medcat/Liquidscript">Fork It</a></li>
         </ul>
       </nav>
     </header>
@@ -29,7 +29,7 @@
 
     <div class="container">
       <div id="what-is">
-        <h2>What is liquidscript?</h2>
+        <h2>What is Liquidscript?</h2>
         <p>
           Liquidscript is a new language for the web.  It's meant to replace Javascript and Coffeescript, and take their roles completely over -
           so you can code completely in Liquidscript without writing a single line of each.  Liquidscript's main goal &mdash; it's objective
@@ -72,10 +72,10 @@
         <h4>Variables</h4>
 
         <p>
-          As in vanilla javascript, variables can be any combination of letters and numbers, with a few other characters included.  The first
-          character must be a non-numeric character, while the rest can have numbers.  Unlike javascript, however, liquidscript can handle dashes
-          in the middle of variables &mdash; like <code>hello-world</code>.  These dashes compile to a javascript-like variable; for example, the
-          variable before would compile to <code>helloWorld</code>.  This makes interfacing with current javascript libraries easy.
+          As in vanilla Javascript, variables can be any combination of letters and numbers, with a few other characters included.  The first
+          character must be a non-numeric character, while the rest can have numbers.  Unlike Javascript, however, Liquidscript can handle dashes
+          in the middle of variables &mdash; like <code>hello-world</code>.  These dashes compile to a Javascript-like variable; for example, the
+          variable before would compile to <code>helloWorld</code>.  This makes interfacing with current Javascript libraries easy.
         </p>
 
           <pre class="clearfix"><code class="highlight"><span class="c1">#! allow parseInt document</span>
@@ -117,8 +117,8 @@
         <h4>Functions</h4>
 
         <p>
-          Liquidscript has a very basic implementation of functions.  The functions in liquidscript are meant to be short, sweet, and to the point
-          &mdash; basically, a very concise version of javascript functions.  Functions cannot be named (i.e., they're always anonymous).  Eventually,
+          Liquidscript has a very basic implementation of functions.  The functions in Liquidscript are meant to be short, sweet, and to the point
+          &mdash; basically, a very concise version of Javascript functions.  Functions cannot be named (i.e., they're always anonymous).  Eventually,
           default values and argument collection will be supported.  The coffeescript double arrow syntax, <code>()=></code>, is not supported.
         </p>
 
@@ -145,8 +145,8 @@
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="k">module</span> <span class="nc">Math</span> <span class="p">{</span>
-  <span class="nv">random: </span><span class="nf">-&gt;</span> <span class="mi">42</span> <span class="c1"># I randomly picked this off a dart</span>
-                <span class="c1"># board, so that counts, right?</span>
+  <span class="nv">random: </span><span class="nf">-&gt;</span> <span class="k">return</span> <span class="mi">42</span> <span class="c1"># I randomly picked this off a</span>
+                <span class="c1"># dart board, so that counts, right?</span>
   <span class="nv">PI: </span><span class="mi">3</span>         <span class="c1"># Technically correct.</span>
   <span class="nv">e: </span><span class="mi">2</span>          <span class="c1"># Not this one.</span>
 <span class="p">}</span></code></pre>
@@ -154,7 +154,7 @@
         <h4>Classes</h4>
 
         <p>
-          Classes are constructs that liquidscript makes.  The classes are defined based on the Functional prototypal inheritance built into javascript.
+          Classes are constructs that Liquidscript makes.  The classes are defined based on the Functional prototypal inheritance built into Javascript.
           Basically, properties and methods of classes are put on the prototype of a function &mdash; and classes are instantized with the <code>new</code>
           keyword.  Properties that are meant to be a part of the class are prefixed with <code>this.</code>, signifying that it's meant to be on the
           class, not the instance of the class.
@@ -200,7 +200,7 @@
           Liquidscript has comments that are started by <code>#</code>, and go through the entire
           line.  There are no multiline strings.  Comments that start with <code>#!</code> are
           directives.  The only directive currently supported is <code>#! allow</code>, which allows
-          variables to be referenced without being defined beforehand, since liquidscript checks
+          variables to be referenced without being defined beforehand, since Liquidscript checks
           each variable as they're used.
         </p>
 
@@ -224,15 +224,15 @@
           Liquidscript is currently written in ruby, so the only way to install it is through gem:
         </p>
 
-        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem install liquidscript</code></pre>
+        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem install Liquidscript</code></pre>
 
         <p>
           Liquidscript comes with a binary, <code>lscript</code>, which can compile files for you.
-          If you're running a rails application, liquidscript hooks into Sprockets, allowing files
+          If you're running a rails application, Liquidscript hooks into Sprockets, allowing files
           to be served as assets just like coffeescript:
         </p>
 
-        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem 'liquidscript', require: 'liquidscript/sprockets'</code></pre>
+        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem 'Liquidscript', require: 'Liquidscript/sprockets'</code></pre>
 
         <p>
           Liquidscript uses the extention <code>.liq</code>.
@@ -262,7 +262,7 @@ Greeter.meet("Alice", "Bob")
       </div>
     </div>
 
-    <footer>Created by <a href="https://github.com/medcat">medcat</a>, with help of <a href="https://github.com/Mechazawa">Mechazawa</a>.  Check out the <a href="https://github.com/medcat/liquidscript">open source project</a>.</footer>
+    <footer>Created by <a href="https://github.com/medcat">medcat</a>, with help of <a href="https://github.com/Mechazawa">Mechazawa</a>.  Check out the <a href="https://github.com/medcat/Liquidscript">open source project</a>.</footer>
   </body>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
