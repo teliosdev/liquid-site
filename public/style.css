@@ -1,6 +1,6 @@
 * {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -66,6 +66,7 @@ header {
     padding: 10px;
     padding-bottom: 11px;
     display: inline-block;
+    padding-left: 0;
   }
 
   header h1 .l {
@@ -85,10 +86,10 @@ header {
     vertical-align: top;
   }
 
-  header ul li { 
-    display: inline-block; 
-    margin: 0; 
-    padding: 0; 
+  header ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
     float: left;
   }
 
@@ -178,7 +179,7 @@ div.pre div.input textarea {
   padding: 10px;
 }
 
-div.pre code.compiled { 
+div.pre code.compiled {
   margin-top: 20px;
 }
 
