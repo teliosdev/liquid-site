@@ -1,5 +1,6 @@
 #!/usr/bin/sh
 
+exit 0
 pid=$(cat puma.pid)
 
 if [ -z "$var" ]; then

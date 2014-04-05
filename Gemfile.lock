@@ -7,8 +7,6 @@ GEM
       thor
     oj (2.6.1)
     posix-spawn (0.3.8)
-    puma (2.8.1)
-      rack (>= 1.1, < 2.0)
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
@@ -29,6 +27,5 @@ PLATFORMS
 DEPENDENCIES
   liquidscript
   oj
-  puma
   pygments.rb
   sinatra
