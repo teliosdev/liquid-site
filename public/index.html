@@ -193,6 +193,28 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Circle</span><span class="p">.</span><span class="nx">unit</span><span class="p">().</span><span class="nx">area</span><span class="p">())</span>
 </code></pre>
+
+        <h3>Comments</h3>
+
+        <p>
+          Liquidscript has comments that are started by <code>#</code>, and go through the entire
+          line.  There are no multiline strings.  Comments that start with <code>#!</code> are
+          directives.  The only directive currently supported is <code>#! allow</code>, which allows
+          variables to be referenced without being defined beforehand, since liquidscript checks
+          each variable as they're used.
+        </p>
+
+        <pre class="clearfix"><code class="highlight"><span class="c1"># If this wasn&#39;t here, the compiler</span>
+<span class="c1"># would complain &quot;no variable named</span>
+<span class="c1"># Array&quot;.  This is primarily to</span>
+<span class="c1"># make sure the developer doesn&#39;t</span>
+<span class="c1"># accidentally things.</span>
+<span class="c1">#! allow Array</span>
+
+<span class="p">()</span><span class="nf">-&gt;</span> <span class="p">{</span>
+  <span class="nv">slice = </span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span>
+  <span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span></code></pre>
       </div>
 
       <div id="installation">
@@ -206,6 +228,14 @@
 
         <p>
           Liquidscript comes with a binary, <code>lscript</code>, which can compile files for you.
+          If you're running a rails application, liquidscript hooks into Sprockets, allowing files
+          to be served as assets just like coffeescript:
+        </p>
+
+        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem 'liquidscript', require: 'liquidscript/sprockets'</code></pre>
+
+        <p>
+          Liquidscript uses the extention <code>.liq</code>.
         </p>
       </div>
 
