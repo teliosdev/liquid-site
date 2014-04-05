@@ -58,4 +58,6 @@ $(function () {
     keyBind = setTimeout(refreshBox, 500);
   });
 
+  refreshBox();
+
 });
