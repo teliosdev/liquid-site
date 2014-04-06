@@ -31,5 +31,22 @@ post '/run' do
     error = e.message
   end
 
+  content_type 'application/json'
   Oj.dump({ "error" => error, "success" => (error == nil), "result" => output }, :object)
+end
+
+post '/exec.js' do
+  ast    = params[:type] == "ast"
+  tokens = params[:type] == "tokens"
+
+  begin
+    output = Liquidscript.compile(params[:code],
+      :ast => ast, :tokens => tokens).to_s
+  rescue Liquidscript::Error => e
+    status 400
+    return e.message
+  end
+
+  content_type 'application/javascript'
+  output
 end
