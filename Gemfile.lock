@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     hashie (2.1.0)
-    liquidscript (0.8.0)
+    liquidscript (0.8.1)
       hashie (~> 2.0)
       thor
     oj (2.7.2)
