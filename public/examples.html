@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liquidscript</title>
+
+    <link href="style.css" media="screen" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lato|Raleway' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav">
+        <h1>
+          <span class="l">liquid</span><span class="s">script</span>
+        </h1>
+
+        <ul class="nav">
+          <li><a href="/#what-is">What is it?</a></li>
+          <li><a href="/#syntax">Syntax</a></li>
+          <li><a href="/#installation">Installation</a></li>
+          <li><a href="/#try-it">Try It</a></li>
+          <li class="active"><a href="/examples">Examples</a></li>
+          <li><a href="https://github.com/medcat/Liquidscript">Fork It</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="jumboish pad-top">
+      <h1 class="container">Liquidscript</h1>
+    </div>
+
+    <div class="container">
+      <div id="what-is">
+        <h2>Examples</h2>
+        <div class="styled-select">
+          <select>
+            <option value="liquidsnake.liq">Snake</option>
+            <option value="mandelbrot.liq">Mandelbrot</option>
+            <option value="fibonatchi.liq">Fibonatchi sequence</option>
+            <option value="gameoflife.liq">The Game Of Life</option>
+          </select>
+        </div>
+        <div class="clearfix pre" id="try">
+          <div class="input">
+            <textarea id="input">class Greeter {
+  initialize: (name)-> this.name = name
+
+  greet: -> console.log("Hello #{this.name}!")
+
+  this.meet: (first, second)-> {
+    new Greeter(first).greet()
+    new Greeter(second).greet()
+  }
+}
+
+Greeter.meet("Alice", "Bob")
+</textarea>
+          </div>
+          <button id="run">Execute</button>
+        </div>
+        <div class="output" id="output">
+        Hello I'm output!
+        </div>
+      </div>
+    </div>
+
+    <footer>Created by <a href="https://github.com/medcat">medcat</a>, with help of <a href="https://github.com/Mechazawa">Mechazawa</a>.  Check out the <a href="https://github.com/medcat/Liquidscript">open source project</a>.</footer>
+  </body>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="scrollspy.min.js"></script>
+  <script src="script.min.js"></script>
+</html>
