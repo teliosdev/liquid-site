@@ -89,6 +89,14 @@ $(function () {
     fakeConsole._buffer = "";
   });
 
+  $("#examples").change(function(){
+    var filename = $(this).find("option:selected").val();
+    $.get("/examples/" + filename, function(data){
+      $("#try textarea").val(data);
+      refreshBox();
+    });
+  });
+
   refreshBox();
 
 });
