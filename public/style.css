@@ -212,6 +212,7 @@ div.output {
   margin-bottom: 30px;
   padding:10px;
   white-space: pre-wrap;
+  font-family: monospace;
 }
 
 b {
