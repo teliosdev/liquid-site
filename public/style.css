@@ -141,12 +141,14 @@ pre, div.pre {
   clear: both;
   border: 1px solid #88a6cf;
   margin: 30px 0;
+  margin-bottom: 0;
   box-shadow: inset 0 0 0 1px white;
   white-space: pre-wrap;
 }
 
 div.pre {
   white-space: normal;
+  position: relative;
 }
 
 div.pre button {
@@ -154,9 +156,14 @@ div.pre button {
   margin-left: 392px;
   border: 0;
   font-family: "Lato", sans-serif;;
-  color: #444;
+  color: #f9f9f9;
   font-size: 20px;
   position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+  outline: none;
 }
 
 code, div.pre div.input {
@@ -185,7 +192,7 @@ div.pre div.input {
   float: left;
 }
 
-div.pre div.input textarea {
+div.pre div.input textarea, div.output {
   background: transparent;
   outline: none;
   border: 1px solid #88a6cf;
@@ -203,16 +210,18 @@ div.pre code.compiled {
   white-space: pre-wrap;
 }
 
+#try {
+  border-bottom: 0;
+}
+
 div.output {
-  width: 100%;
-  background: #e9eef6;
-  border: 1px solid #88A6CF;
-  border-top: 0px;
-  margin-top: -31px;
+  background: #f9f9f9;
   margin-bottom: 30px;
-  padding:10px;
   white-space: pre-wrap;
-  font-family: monospace;
+  font-family: Monaco, Consolas, monospace;
+  font-size: 14px;
+  min-height: 0;
+  padding: 20px;
 }
 
 b {
