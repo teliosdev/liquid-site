@@ -4,21 +4,21 @@
 run-brainfuck = (cmd, tape-length) ->{
   #Create an empty tape with 0's
   tape = (()->{
-    a=[] 
+    a=[]
     for(i = 0, i<tape-length, i++) {
       a.push(0)
-    } 
+    }
     return a
   })()
 
   #Filter the cmd
   cmd=(()->{
-    a="" 
+    a=""
     for(c in cmd) {
       if("+-<>.,[]".indexOf(cmd[c]) != -1) {
         a+=cmd[c]
       }
-    } 
+    }
     return a
   })()
 
@@ -29,8 +29,8 @@ run-brainfuck = (cmd, tape-length) ->{
   chr = String.fromCharCode
   while(true) {
     if (
-     tape-pointer > tape.length 
-  or tape-pointer < 0 or c-pointer < 0 
+     tape-pointer > tape.length
+  or tape-pointer < 0 or c-pointer < 0
   or c-pointer > cmd.length - 1
     ) {
       break
@@ -45,10 +45,10 @@ run-brainfuck = (cmd, tape-length) ->{
     elsif(c == ","){} # Not implemented
     elsif(c == "["){
       if(tape[tape-pointer]==0) {
-        c=0 
+        c=0
         while(1){
-          c-pointer++ 
-          if(cmd[c-pointer] == "[") 
+          c-pointer++
+          if(cmd[c-pointer] == "[")
             {c++}
           elsif(c==0 and cmd[c-pointer] == "]")
             {break}
@@ -59,10 +59,10 @@ run-brainfuck = (cmd, tape-length) ->{
     }
     elsif(c == "]"){
       if(tape[tape-pointer]!=0) {
-        c=0 
+        c=0
         while(1){
           c-pointer--
-          if(cmd[c-pointer] == "]") 
+          if(cmd[c-pointer] == "]")
             {c++}
           elsif(c==0 and cmd[c-pointer] == "[")
             {break}

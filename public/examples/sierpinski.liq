@@ -18,4 +18,4 @@ sierpinski = (size) ->{
     return out
 }
 
-return sierpinski(4) 
+return sierpinski(4)
