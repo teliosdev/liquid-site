@@ -57,6 +57,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
   background-color: rgba(253, 253, 253, .8);
   /*box-shadow: 0 0 3px #afafaf;*/
 }
@@ -148,6 +149,16 @@ div.pre {
   white-space: normal;
 }
 
+div.pre button {
+  background: #88A6CF;
+  margin-left: 392px;
+  border: 0;
+  font-family: "Lato", sans-serif;;
+  color: #444;
+  font-size: 20px;
+  position: absolute;
+}
+
 code, div.pre div.input {
   font-family: Monaco, Consolas, monospace;
   font-size: 14px;
@@ -192,6 +203,17 @@ div.pre code.compiled {
   white-space: pre-wrap;
 }
 
+div.output {
+  width: 100%;
+  background: #e9eef6;
+  border: 1px solid #88A6CF;
+  border-top: 0px;
+  margin-top: -31px;
+  margin-bottom: 30px;
+  padding:10px;
+  white-space: pre-wrap;
+}
+
 b {
   font-weight: normal;
 }
@@ -205,6 +227,18 @@ b {
 .clearfix:after {
     clear: both;
 }
+
+.styled-select select {
+  background: transparent;
+  width: 260px;
+  padding: 5px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  border: 1px solid #88a6cf;
+}
+
 
 /**
  * For IE 6/7 only
