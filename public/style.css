@@ -247,9 +247,3 @@ b {
 .clearfix {
     *zoom: 1;
 }
-
-/**
- * Highlighter
- */
-
- .highlight{color:#444}.highlight .hll{background-color:#ffc}.highlight .gs{font-weight:700}.highlight .sd{color:#2b8bb3;font-style:italic}.highlight .k{color:#444;font-weight:700}.highlight .c,.highlight .c1,.highlight .cl,.highlight .cm,.highlight .cs{color:#998;font-style:italic}.highlight .err{border:1px solid red}.highlight .ge{font-style:italic}.highlight .gh,.highlight .gp,.highlight .gu,.highlight .kc,.highlight .kd,.highlight .kn,.highlight .kr,.highlight .ow{color:#444;font-weight:700}.highlight .gd,.highlight .gi,.highlight .go,.highlight .gr,.highlight .gt,.highlight .na,.highlight .nd,.highlight .nv,.highlight .w{color:#444}.highlight .nc,.highlight .ne,.highlight .ni,.highlight .nn,.highlight .no,.highlight .nt,.highlight .se,.highlight .si{color:#88a6cf;font-weight:700}.highlight .bp,.highlight .il,.highlight .kp,.highlight .kt,.highlight .m,.highlight .mf,.highlight .mh,.highlight .mi,.highlight .mo,.highlight .nb,.highlight .nf,.highlight .nl,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sh,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .vc,.highlight .vg,.highlight .vi{color:#88a6cf}
