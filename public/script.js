@@ -94,8 +94,12 @@ $(function () {
     $.get("/examples/" + filename, function(data){
       $("#try textarea").val(data);
       refreshBox();
+      $("#try textarea").trigger("autosize.resize");
     });
   });
+
+  $("#input").autosize();
+  $("#input").trigger("autosize.resize");
 
   refreshBox();
 
