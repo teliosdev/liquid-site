@@ -57,6 +57,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
   background-color: rgba(253, 253, 253, .8);
   /*box-shadow: 0 0 3px #afafaf;*/
 }
@@ -140,12 +141,29 @@ pre, div.pre {
   clear: both;
   border: 1px solid #88a6cf;
   margin: 30px 0;
+  margin-bottom: 0;
   box-shadow: inset 0 0 0 1px white;
   white-space: pre-wrap;
 }
 
 div.pre {
   white-space: normal;
+  position: relative;
+}
+
+div.pre button {
+  background: #88A6CF;
+  margin-left: 392px;
+  border: 0;
+  font-family: "Lato", sans-serif;;
+  color: #f9f9f9;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+  outline: none;
 }
 
 code, div.pre div.input {
@@ -174,7 +192,7 @@ div.pre div.input {
   float: left;
 }
 
-div.pre div.input textarea {
+div.pre div.input textarea, div.output {
   background: transparent;
   outline: none;
   border: 1px solid #88a6cf;
@@ -192,6 +210,20 @@ div.pre code.compiled {
   white-space: pre-wrap;
 }
 
+#try {
+  border-bottom: 0;
+}
+
+div.output {
+  background: #f9f9f9;
+  margin-bottom: 30px;
+  white-space: pre-wrap;
+  font-family: Monaco, Consolas, monospace;
+  font-size: 14px;
+  min-height: 0;
+  padding: 20px;
+}
+
 b {
   font-weight: normal;
 }
@@ -205,6 +237,18 @@ b {
 .clearfix:after {
     clear: both;
 }
+
+.styled-select select {
+  background: transparent;
+  width: 260px;
+  padding: 5px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  border: 1px solid #88a6cf;
+}
+
 
 /**
  * For IE 6/7 only

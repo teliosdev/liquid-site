@@ -58,6 +58,49 @@ $(function () {
     keyBind = setTimeout(refreshBox, 500);
   });
 
+  fakeConsole = window.fakeConsole = {};
+  fakeConsole._buffer = "";
+  fakeConsole.concat = function() {
+    for (var i = 0; i < arguments.length; i++) {
+      if(arguments[i] && arguments[i].toString())
+        fakeConsole._buffer += arguments[i].toString();
+      fakeConsole._buffer += "\n";
+    }
+  }
+  fakeConsole.warn = fakeConsole.error = fakeConsole.log = fakeConsole.concat;
+
+  $("#run").click(function() {
+    var code = $("#try code.compiled").text();
+    var toExec = "(function(console){" + code + "})(window.fakeConsole)"
+
+    try {
+      var output = eval(toExec);
+      var result = "";
+
+      if(fakeConsole._buffer)
+        result += "Console log:\n\n" + fakeConsole._buffer
+      if(output)
+        result += (result?"\n\n":"") + "Output:\n\n" + output.toString()
+
+      $("#output").text(result || "Code did not return any output")
+    } catch(e) {
+      $("#output").text(e);
+    }
+    fakeConsole._buffer = "";
+  });
+
+  $("#examples").change(function(){
+    var filename = $(this).find("option:selected").val();
+    $.get("/examples/" + filename, function(data){
+      $("#try textarea").val(data);
+      refreshBox();
+      $("#try textarea").trigger("autosize.resize");
+    });
+  });
+
+  $("#input").autosize();
+  $("#input").trigger("autosize.resize");
+
   refreshBox();
 
 });
