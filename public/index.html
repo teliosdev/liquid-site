@@ -33,22 +33,22 @@
       <div id="what-is">
         <h2>What is Liquidscript?</h2>
         <p>
-          Liquidscript is a new language for the web.  It's meant to replace Javascript and Coffeescript, and take their roles completely over -
-          so you can code completely in Liquidscript without writing a single line of each.  Liquidscript's main goal &mdash; it's objective
-          &mdash; is to reduce the syntaxic noise in the languages commonly used.  It needs to be clear and concise, so that it can be easily
-          used to code small projects to large projects.
+          Liquidscript is a new language for the web.  It's meant to replace Javascript and Coffeescript, and take their roles
+          completely over - so you can code completely in Liquidscript without writing a single line of each.  Liquidscript's main
+          goal &mdash; it's objective &mdash; is to reduce the syntaxic noise in the languages commonly used.  It needs to be clear
+          and concise, so that it can be easily used to code small projects to large projects.
         </p>
         <p>
-          Liquidscript is written completely in the Ruby language, which makes integration with Rails applications (and any other applications
-          that uses the Ruby language) easy.
+          Liquidscript is written completely in the Ruby language, which makes integration with Rails applications (and any other
+          applications that uses the Ruby language) easy.
         </p>
       </div>
 
       <div id="syntax">
         <h2>Liquidscript's Syntax</h2>
         <p>
-          Liquidscript has a syntax not dissimilar to either Javascript or Coffeescript - users of either language should be able to use
-          Liquidscript with little to no difficulty.</p>
+          Liquidscript has a syntax not dissimilar to either Javascript or Coffeescript - users of either language should be able to
+          use Liquidscript with little to no difficulty.</p>
 
           <pre class="clearfix"><code class="highlight"><span class="k">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
   <span class="nv">initialize: </span><span class="nf">(name)-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nv">name = </span><span class="nx">name</span>
@@ -65,8 +65,7 @@
 </code></pre>
 
         <p>
-          Breaking it down, there are a few elements to the language: <b>classes</b>, <b>modules</b>, <b>functions</b>, <b>strings</b>,
-          and <b>literals</b>.
+          Breaking it down, there are a few elements to the language: <b>comments</b>, <b>classes</b>, <b>modules</b>, <b>functions</b>, and <b>literals</b>.
         </p>
 
         <h3>Literals</h3>
@@ -74,10 +73,11 @@
         <h4>Variables</h4>
 
         <p>
-          As in vanilla Javascript, variables can be any combination of letters and numbers, with a few other characters included.  The first
-          character must be a non-numeric character, while the rest can have numbers.  Unlike Javascript, however, Liquidscript can handle dashes
-          in the middle of variables &mdash; like <code>hello-world</code>.  These dashes compile to a Javascript-like variable; for example, the
-          variable before would compile to <code>helloWorld</code>.  This makes interfacing with current Javascript libraries easy.
+          As in vanilla Javascript, variables can be any combination of letters and numbers, with a few other characters included.
+           The first character must be a non-numeric character, while the rest can have numbers.  Unlike Javascript, however,
+           Liquidscript can handle dashes in the middle of variables &mdash; like <code>hello-world</code>.  These dashes compile to
+           a Javascript-like variable; for example, the variable before would compile to <code>helloWorld</code>.  This makes
+           interfacing with current Javascript libraries easy.
         </p>
 
           <pre class="clearfix"><code class="highlight"><span class="c1">#! allow parseInt document</span>
@@ -98,11 +98,12 @@
         <h4>Strings</h4>
 
         <p>
-          Liquidscript has a set of interesting string literals.  Liquidscript supports double quotes, single quotes, heredocs, interpolation,
-          and string escaping.  However, <b>single quotes are limited to the same characters that identifiers are limited to, plus a few others</b>.
-          The ending delimiter for single quote strings is optional, as well.  The point of this is to establish a difference between strings that
-          are used as data (double strings), and strings that are used as identifiers (single strings) &mdash; i.e., the keys for objects, such as
-          <code>object['key]</code>.  Single strings can also handle paths - <code>require('some/random/path)</code>.
+          Liquidscript has a set of interesting string literals.  Liquidscript supports double quotes, single quotes, heredocs,
+          interpolation, and string escaping.  However, <b>single quotes are limited to the same characters that identifiers are
+          limited to, plus a few others</b>. The ending delimiter for single quote strings is optional, as well.  The point of this
+          is to establish a difference between strings that are used as data (double strings), and strings that are used as
+          identifiers (single strings) &mdash; i.e., the keys for objects, such as <code>object['key]</code>.  Single strings can
+          also handle paths - <code>require('some/random/path)</code>.
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="nv">string = </span><span class="s">&quot;hello</span>
@@ -116,12 +117,13 @@
 <span class="nx">TEST</span>
 </code></pre>
 
-        <h4>Functions</h4>
+        <h3>Functions</h3>
 
         <p>
-          Liquidscript has a very basic implementation of functions.  The functions in Liquidscript are meant to be short, sweet, and to the point
-          &mdash; basically, a very concise version of Javascript functions.  Functions cannot be named (i.e., they're always anonymous).  Eventually,
-          default values and argument collection will be supported.  The Coffeescript double arrow syntax, <code>()=></code>, is not supported.
+          Liquidscript has a very basic implementation of functions.  The functions in Liquidscript are meant to be short, sweet, and
+          to the point &mdash; basically, a very concise version of Javascript functions.  Functions cannot be named (i.e., they're
+          always anonymous).  Eventually, default values and argument collection will be supported.  The Coffeescript double arrow
+          syntax, <code>()=></code>, is not supported.
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="c1">#! allow Array</span>
@@ -139,11 +141,49 @@
 <span class="nx">app-log</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span>
 </code></pre>
 
-        <h4>Modules</h4>
+        <h4>Arrays</h4>
 
         <p>
-          A module is basically a structure that compacts variables and functions into a simple object.  Classes can be defined within the scope
-          of modules - otherwise, anything but the key-value pair is considered an error.
+          Arrays in Liquidscript works just like a normal array in Javascript &mdash; you can have any kind of values for the elements, and they are accessed through the `[]` accessor.  There are a few key differences though &mdash; Liquidscript
+          doesn't require commas between elements.  Of course, this could help the parser resolve syntax issues, if it comes
+          down to that.  Arrays can be built from ranges between two items, as well.
+        </p>
+
+        <pre class="clearfix"><code class="highlight"><span class="nx">some</span><span class="o">-</span><span class="nv">array = </span><span class="p">[</span>
+  <span class="c1"># This expands to an array with every number</span>
+  <span class="c1"># between 0 and 9, inclusive.</span>
+  <span class="mi">0</span><span class="p">..</span><span class="mi">9</span>
+
+  <span class="p">[</span><span class="s">&#39;test</span><span class="p">]</span>
+
+  <span class="c1">#! allow x y</span>
+  <span class="c1"># This expands to an array that contains the</span>
+  <span class="c1"># values between x and y, inclusive.</span>
+  <span class="nx">x</span><span class="p">..</span><span class="nx">y</span>
+<span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">some</span><span class="o">-</span><span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">..</span><span class="mi">9</span><span class="p">)</span>
+</code></pre>
+
+        <h4>Objects</h4>
+
+        <p>
+          Like arrays, objects don't require commas between each key-value pair.  Keys may be an identifier or a string.  A string
+          may be used in cases where an identifier wouldn't contain the characters that would be needed, or the `-` substitution is
+          unwanted.
+        </p>
+
+        <pre class="clearfix"><code class="highlight"><span class="nx">some</span><span class="o">-</span><span class="nv">object = </span><span class="p">{</span>
+  <span class="nv">hello: </span><span class="s">&#39;world</span>
+  <span class="nv">foo: </span><span class="p">[</span><span class="s">&#39;bar</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+        <h3>Modules</h3>
+
+        <p>
+          A module is basically a structure that compacts variables and functions into a simple object.  Classes can be defined
+          within the scope of modules - otherwise, anything but the key-value pair is considered an error.
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="k">module</span> <span class="nc">Math</span> <span class="p">{</span>
@@ -153,13 +193,17 @@
   <span class="nv">e: </span><span class="mi">2</span>          <span class="c1"># Not this one.</span>
 <span class="p">}</span></code></pre>
 
-        <h4>Classes</h4>
+        <h3>Classes</h3>
 
         <p>
-          Classes are constructs that Liquidscript makes.  The classes are defined based on the Functional prototypal inheritance built into Javascript.
-          Basically, properties and methods of classes are put on the prototype of a function &mdash; and classes are instantized with the <code>new</code>
-          keyword.  Properties that are meant to be a part of the class are prefixed with <code>this.</code>, signifying that it's meant to be on the
-          class, not the instance of the class.
+          Classes are constructs that Liquidscript makes.  The classes are defined based on the Functional prototypal inheritance
+          built into Javascript. Basically, properties and methods of classes are put on the prototype of a function &mdash; and
+          classes are instantized with the <code>new</code> keyword.  Properties that are meant to be a part of the class are
+          prefixed with <code>this.</code>, signifying that it's meant to be on the class, not the instance of the class.
+        </p>
+        <p>
+          Within functions that are defined as properties of classes, instance properties may be accessed without a
+          <code>this.</code> keyword prefixed.
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="c1">#! allow Math</span>
@@ -184,7 +228,7 @@
   <span class="p">}</span>
 
   <span class="nv">area: </span><span class="nf">-&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(<span class="nx">r</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
   <span class="p">}</span>
 
   <span class="c1"># Unit circle.</span>
@@ -226,7 +270,7 @@
           Liquidscript is currently written in ruby, so the only way to install it is through gem:
         </p>
 
-        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem install Liquidscript</code></pre>
+        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem install liquidscript</code></pre>
 
         <p>
           Liquidscript comes with a binary, <code>lscript</code>, which can compile files for you.
@@ -234,7 +278,7 @@
           to be served as assets just like Coffeescript:
         </p>
 
-        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem 'Liquidscript', require: 'Liquidscript/sprockets'</code></pre>
+        <pre class="clearfix no-compile"><code class="highlight"><span class="nv">$ </span>gem 'liquidscript', require: 'liquidscript/sprockets'</code></pre>
 
         <p>
           Liquidscript uses the extension <code>.liq</code>.
