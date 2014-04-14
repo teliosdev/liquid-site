@@ -1,22 +1,22 @@
 #! allow JSON
 
 class LinkedList {
-    initialize: (value, next) ->{
-        this.value = value
-        this.next  = next
-    }
+  initialize: (value, next)-> {
+    this.value = value
+    this.next  = next
+  }
 }
 
-create-linked-list = (array) ->{
-    prev = null
-    for(i = array.length - 1, i >= 0, i--) {
-        node = new LinkedList(array[i], prev)
-        prev = node
-    }
-    return prev
+create-linked-list = (array)-> {
+  prev = null
+  for(i = array.length - 1, i >= 0, i--) {
+    node = new LinkedList(array[i], prev)
+    prev = node
+  }
+  return prev
 }
 
-array = [1, 2, 3, 4, 5, 6, 7]
+array = 1..7
 head = create-linked-list(array)
 
 #            1    2    3    4
