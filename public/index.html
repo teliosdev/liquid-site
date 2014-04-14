@@ -80,7 +80,7 @@
            interfacing with current Javascript libraries easy.
         </p>
 
-          <pre class="clearfix"><code class="highlight"><span class="c1">#! allow parseInt document</span>
+          <pre class="clearfix"><code class="highlight"><span class="c1">#! allow document</span>
 
 <span class="nx">hex-to-rgb = </span><span class="nf">(hex)-&gt;</span> <span class="p">{</span>
   <span class="nv">out = </span><span class="p">[</span>
@@ -93,7 +93,7 @@
 <span class="p">}</span>
 
 <span class="nv">code = </span><span class="nb">document</span><span class="p">.</span><span class="nx">get-element-by-id</span><span class="p">(</span><span class="s">&quot;thing&quot;</span><span class="p">)</span>
-<span class="nx">code</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span><span class="o">-</span><span class="nv">color = </span><span class="nx">hex-to-rgb</span><span class="p">(</span><span class="s">&quot;#00ffff&quot;</span><span class="p">)</span></code></pre>
+<span class="nx">code</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border-color = </span><span class="nx">hex-to-rgb</span><span class="p">(</span><span class="s">&quot;#00ffff&quot;</span><span class="p">)</span></code></pre>
 
         <h4>Strings</h4>
 
@@ -126,9 +126,7 @@
           syntax, <code>()=></code>, is not supported.
         </p>
 
-        <pre class="clearfix"><code class="highlight"><span class="c1">#! allow Array</span>
-
-<span class="nv">curry = </span><span class="nf">(fn)-&gt;</span> <span class="p">{</span>
+        <pre class="clearfix"><code class="highlight"><span class="nv">curry = </span><span class="nf">(fn)-&gt;</span> <span class="p">{</span>
   <span class="nv">slice = </span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span>
   <span class="nv">args = </span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -149,10 +147,10 @@
           down to that.  Arrays can be built from ranges between two items, as well.
         </p>
 
-        <pre class="clearfix"><code class="highlight"><span class="nx">some</span><span class="o">-</span><span class="nv">array = </span><span class="p">[</span>
+        <pre class="clearfix"><code class="highlight"><span class="nx">some-array = </span><span class="p">[</span>
   <span class="c1"># This expands to an array with every number</span>
   <span class="c1"># between 0 and 9, inclusive.</span>
-  <span class="mi">0</span><span class="p">..</span><span class="mi">9</span>
+  <span class="mi">0</span><span class="p">..</span><span class="mi">9</span><span class="p">,</span>
 
   <span class="p">[</span><span class="s">&#39;test</span><span class="p">]</span>
 
@@ -162,18 +160,18 @@
   <span class="nx">x</span><span class="p">..</span><span class="nx">y</span>
 <span class="p">]</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">some</span><span class="o">-</span><span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">..</span><span class="mi">9</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">some-array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">..</span><span class="mi">9</span><span class="p">)</span>
 </code></pre>
 
         <h4>Objects</h4>
 
         <p>
           Like arrays, objects don't require commas between each key-value pair.  Keys may be an identifier or a string.  A string
-          may be used in cases where an identifier wouldn't contain the characters that would be needed, or the `-` substitution is
-          unwanted.
+          may be used in cases where an identifier wouldn't contain the characters that would be needed, or the <code>-</code>
+          substitution is unwanted.
         </p>
 
-        <pre class="clearfix"><code class="highlight"><span class="nx">some</span><span class="o">-</span><span class="nv">object = </span><span class="p">{</span>
+        <pre class="clearfix"><code class="highlight"><span class="nx">some-object = </span><span class="p">{</span>
   <span class="nv">hello: </span><span class="s">&#39;world</span>
   <span class="nv">foo: </span><span class="p">[</span><span class="s">&#39;bar</span><span class="p">]</span>
 <span class="p">}</span>
@@ -206,9 +204,7 @@
           <code>this.</code> keyword prefixed.
         </p>
 
-        <pre class="clearfix"><code class="highlight"><span class="c1">#! allow Math</span>
-
-<span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+        <pre class="clearfix"><code class="highlight"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
   <span class="nv">x: </span><span class="mi">0</span>
   <span class="nv">y: </span><span class="mi">0</span>
 
@@ -252,15 +248,14 @@
 
         <pre class="clearfix"><code class="highlight"><span class="c1"># If this wasn&#39;t here, the compiler</span>
 <span class="c1"># would complain &quot;no variable named</span>
-<span class="c1"># Array&quot;.  This is primarily to</span>
+<span class="c1"># setTimeout&quot;.  This is primarily to</span>
 <span class="c1"># make sure the developer doesn&#39;t</span>
 <span class="c1"># accidentally things.</span>
-<span class="c1">#! allow Array</span>
+<span class="c1">#! allow set-timeout</span>
 
-<span class="p">()</span><span class="nf">-&gt;</span> <span class="p">{</span>
-  <span class="nv">slice = </span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span>
-  <span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">}</span></code></pre>
+<span class="nf">(fn)-&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">set-timeout</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
       </div>
 
       <div id="installation">
