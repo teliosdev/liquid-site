@@ -224,7 +224,7 @@
   <span class="p">}</span>
 
   <span class="nv">area: </span><span class="nf">-&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(<span class="nx">r</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
   <span class="p">}</span>
 
   <span class="c1"># Unit circle.</span>
@@ -233,8 +233,7 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Circle</span><span class="p">.</span><span class="nx">unit</span><span class="p">().</span><span class="nx">area</span><span class="p">())</span>
-</code></pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Circle</span><span class="p">.</span><span class="nx">unit</span><span class="p">().</span><span class="nx">area</span><span class="p">())</span></code></pre>
 
         <h3>Comments</h3>
 
@@ -255,7 +254,7 @@
 
 <span class="nf">(fn)-&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">set-timeout</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="p">}</span></code></pre>
       </div>
 
       <div id="installation">
@@ -280,9 +279,8 @@
         </p>
       </div>
 
-      <div id="try-it">
+      <div class="do-code" id="try-it">
         <h2>Try It</h2>
-
         <div class="clearfix pre" id="try">
           <div class="input">
             <textarea id="input">class Greeter {
@@ -299,7 +297,9 @@
 Greeter.meet("Alice", "Bob")
 </textarea>
           </div>
+          <button id="run">Execute</button>
         </div>
+        <div class="output" id="output"></div>
       </div>
     </div>
 
