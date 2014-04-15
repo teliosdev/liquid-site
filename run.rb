@@ -60,7 +60,7 @@ post '/exec.js' do
   output
 end
 
-get 'version' do
+get '/version' do
   content_type 'text/plain'
   Liquidscript::VERSION
 end
