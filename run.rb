@@ -59,3 +59,8 @@ post '/exec.js' do
   content_type 'application/javascript'
   output
 end
+
+get 'version' do
+  content_type 'text/plain'
+  Liquidscript::VERSION
+end

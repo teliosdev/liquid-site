@@ -58,6 +58,13 @@ $(function () {
     keyBind = setTimeout(refreshBox, 500);
   });
 
+  $.ajax({
+    url: "https://liquidscript.io/version",
+    success: function(d) {
+      $("#brand").append(" v" + d);
+    }
+  });
+
   fakeConsole = window.fakeConsole = {};
   fakeConsole._buffer = "";
   fakeConsole.concat = function() {
