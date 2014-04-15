@@ -7,6 +7,6 @@ fibonacci = (n)-> {
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-for(i = 1, i <= 20, i++) {
+for(i in 1..20) {
   console.log(fibonacci(i))
 }
