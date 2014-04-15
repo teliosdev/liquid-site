@@ -49,18 +49,18 @@
           <div class="clearfix pre" id="try">
             <div class="input">
               <textarea id="input">class Greeter {
-    initialize: (name)-> this.name = name
+  initialize: (name)-> this.name = name
 
-    greet: -> console.log("Hello #{this.name}!")
+  greet: -> console.log("Hello #{this.name}!")
 
-    this.meet: (first, second)-> {
-      new Greeter(first).greet()
-      new Greeter(second).greet()
-    }
+  this.meet: (first, second)-> {
+    new Greeter(first).greet()
+    new Greeter(second).greet()
   }
+}
 
-  Greeter.meet("Alice", "Bob")
-  </textarea>
+Greeter.meet("Alice", "Bob")
+</textarea>
             </div>
             <button id="run">Execute</button>
           </div>
