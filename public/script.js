@@ -50,9 +50,30 @@ $(function () {
   };
 
   $("#try").append("<code class='compiled highlight'></code>");
-  $("#try textarea").on("keydown", function() {
+  $("#try textarea").on("keydown", function(e) {
     if(keyBind) {
       clearTimeout(keyBind);
+    }
+
+    // Insert spaces when tab is pressed
+    if(e.keyCode == 9) {
+      e.preventDefault();
+
+      var tab = "  ";
+      var caretPos = this.selectionStart;
+      var textAreaTxt = $(this).val();
+      $(this).val(textAreaTxt.substring(0, caretPos) + tab + textAreaTxt.substring(caretPos));
+      caretPos += tab.length;
+
+      if(this.setSelectionRange) {
+        this.setSelectionRange(caretPos, caretPos);
+      } else if (this.createTextRange) {
+        var range = this.createTextRange()
+        range.collapse(true);
+        range.moveEnd('character', caretPos);
+        range.moveStart('character', caretPos);
+        range.select();
+      }
     }
 
     keyBind = setTimeout(refreshBox, 500);
