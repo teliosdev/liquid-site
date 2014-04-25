@@ -147,14 +147,14 @@
           down to that.  Arrays can be built from ranges between two items, as well.
         </p>
 
-        <pre class="clearfix"><code class="highlight"><span class="nx">some-array = </span><span class="p">[</span>
+        <pre class="clearfix"><code class="highlight"><span class="c1">:[allow x y]</span>
+  <span class="nx">some-array = </span><span class="p">[</span>
   <span class="c1"># This expands to an array with every number</span>
   <span class="c1"># between 0 and 9, inclusive.</span>
   <span class="mi">0</span><span class="p">..</span><span class="mi">9</span><span class="p">,</span>
 
   <span class="p">[</span><span class="s">&#39;test</span><span class="p">]</span>
 
-  <span class="c1">:[allow x y]</span>
   <span class="c1"># This expands to an array that contains the</span>
   <span class="c1"># values between x and y, inclusive.</span>
   <span class="nx">x</span><span class="p">..</span><span class="nx">y</span>
@@ -189,14 +189,14 @@
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="nv">request = </span><span class="sr">///</span>
-<span class="sr">^                                  # Start of request</span>
-<span class="sr">([A-Z]+) / (?:http|HTTP)/1.1       # For the sake of simplicity, we&#39;re</span>
-<span class="sr">                                   # going to assume they&#39;re only going</span>
-<span class="sr">                                   # to request the index</span>
+<span class="sr">^                              # Start of request</span>
+<span class="sr">([A-Z]+) \/ (?:http|HTTP)\/1.1 # For the sake of simplicity, we&#39;re</span>
+<span class="sr">                               # going to assume they&#39;re only going</span>
+<span class="sr">                               # to request the index</span>
 <span class="sr">(</span>
 <span class="sr">  ([A-Za-z0-9\-]+):\s*([\s\S]+?)\n # Handle headers</span>
 <span class="sr">)+</span>
-<span class="sr">\n                                 # Last newline</span>
+<span class="sr">\n                             # Last newline</span>
 
 <span class="sr">///</span>
 
