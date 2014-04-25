@@ -189,14 +189,15 @@
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="nv">request = </span><span class="sr">///</span>
-<span class="sr">^                              # Start of request</span>
-<span class="sr">([A-Z]+) \/ (?:http|HTTP)\/1.1 # For the sake of simplicity, we&#39;re</span>
-<span class="sr">                               # going to assume they&#39;re only going</span>
-<span class="sr">                               # to request the index</span>
+<span class="sr">^                                  # Start of request</span>
+<span class="sr">([A-Z]+) \/ (?:http|HTTP)\/1.1</span>
+<span class="c1"># For the sake of simplicity, we're going to</span>
+<span class="c1"># assume they're only going to request the</span>
+<span class="c1"># index</span>
 <span class="sr">(</span>
 <span class="sr">  ([A-Za-z0-9\-]+):\s*([\s\S]+?)\n # Handle headers</span>
 <span class="sr">)+</span>
-<span class="sr">\n                             # Last newline</span>
+<span class="sr">\n                                # Last newline</span>
 
 <span class="sr">///</span>
 
