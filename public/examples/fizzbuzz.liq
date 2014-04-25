@@ -1,4 +1,4 @@
-for(i = 1, i <= 100, i++) {
+for(i in 1..100) {
   if(i % 15 == 0) {
     console.log("FizzBuzz")
   } elsif(i % 3 == 0) {
