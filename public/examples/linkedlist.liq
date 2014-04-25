@@ -1,4 +1,4 @@
-#! allow JSON
+:[allow JSON]
 
 class LinkedList {
   initialize: (value, next)-> {

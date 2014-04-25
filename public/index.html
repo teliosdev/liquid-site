@@ -80,7 +80,7 @@
            interfacing with current Javascript libraries easy.
         </p>
 
-          <pre class="clearfix"><code class="highlight"><span class="c1">#! allow document</span>
+          <pre class="clearfix"><code class="highlight"><span class="c1">:[allow document]</span>
 
 <span class="nx">hex-to-rgb = </span><span class="nf">(hex)-&gt;</span> <span class="p">{</span>
   <span class="nv">out = </span><span class="p">[</span>
@@ -117,7 +117,7 @@
 <span class="nx">TEST</span>
 </code></pre>
 
-        <h3>Functions</h3>
+        <h4>Functions</h4>
 
         <p>
           Liquidscript has a very basic implementation of functions.  The functions in Liquidscript are meant to be short, sweet, and
@@ -154,7 +154,7 @@
 
   <span class="p">[</span><span class="s">&#39;test</span><span class="p">]</span>
 
-  <span class="c1">#! allow x y</span>
+  <span class="c1">:[allow x y]</span>
   <span class="c1"># This expands to an array that contains the</span>
   <span class="c1"># values between x and y, inclusive.</span>
   <span class="nx">x</span><span class="p">..</span><span class="nx">y</span>
@@ -175,6 +175,32 @@
   <span class="nv">hello: </span><span class="s">&#39;world</span>
   <span class="nv">foo: </span><span class="p">[</span><span class="s">&#39;bar</span><span class="p">]</span>
 <span class="p">}</span>
+</code></pre>
+
+        <h4>Regular Expressions</h4>
+
+        <p>
+          Regular expressions, in Liquidscript, start with an <code>r</code>.  Regular expressions may contain any character
+          until the first unescaped ending delimiter, and then the modifiers for the expression: <code>r/characters/mi</code>.
+          Liquidscript also supports the block regular expression syntax, which is delimited by <code>///</code> and may
+          contain whitespace characters that are ignored on compilation.  Modifiers may be attached as well.  Comments in
+          the block regular expression (starting with <code>#</code> and continuing to the end of the line) are ignored on
+          output, as well.
+        </p>
+
+        <pre class="clearfix"><code class="highlight"><span class="nv">request = </span><span class="sr">///</span>
+<span class="sr">^                                  # Start of request</span>
+<span class="sr">([A-Z]+) / (?:http|HTTP)/1.1       # For the sake of simplicity, we&#39;re</span>
+<span class="sr">                                   # going to assume they&#39;re only going</span>
+<span class="sr">                                   # to request the index</span>
+<span class="sr">(</span>
+<span class="sr">  ([A-Za-z0-9\-]+):\s*([\s\S]+?)\n # Handle headers</span>
+<span class="sr">)+</span>
+<span class="sr">\n                                 # Last newline</span>
+
+<span class="sr">///</span>
+
+<span class="s">&quot;GET / HTTP/1.1\nHost: liquidscript.io\n\n&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
 </code></pre>
 
         <h3>Modules</h3>
@@ -239,10 +265,12 @@
 
         <p>
           Liquidscript has comments that are started by <code>#</code>, and go through the entire
-          line.  There are no multiline strings.  Comments that start with <code>#!</code> are
-          directives.  The only directive currently supported is <code>#! allow</code>, which allows
-          variables to be referenced without being defined beforehand, since Liquidscript checks
-          each variable as they're used.
+          line.  There are no multiline strings.  Comments that are encapsulated with <code>:[]</code> are
+          directives.  The only directives currently supported are <code>allow</code>, which allows
+          variables to be referenced without being defined beforehand (since Liquidscript checks
+          each variable as they're used); <code>cvar</code>, which defines a class variable that isn't
+          declared but is used; and <code>strict</code>, which outputs a "use strict" statement with
+          the function.
         </p>
 
         <pre class="clearfix"><code class="highlight"><span class="c1"># If this wasn&#39;t here, the compiler</span>
@@ -250,7 +278,7 @@
 <span class="c1"># setTimeout&quot;.  This is primarily to</span>
 <span class="c1"># make sure the developer doesn&#39;t</span>
 <span class="c1"># accidentally things.</span>
-<span class="c1">#! allow set-timeout</span>
+<span class="c1">![allow set-timeout]</span>
 
 <span class="nf">(fn)-&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">set-timeout</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>

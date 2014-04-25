@@ -1,4 +1,4 @@
-#! allow parseInt document
+:[allow parseInt document]
 
 hex-to-rgb = (hex)-> {
   out = [

@@ -1,4 +1,4 @@
-#! allow Math
+:[allow Math]
 
 out = []
 for(i = 0, i < 14, i++) {

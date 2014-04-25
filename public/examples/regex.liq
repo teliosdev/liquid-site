@@ -1,4 +1,4 @@
-#! allow location
+:[allow location]
 
 # This regex matches both the protocol
 #  and the domain we're using
